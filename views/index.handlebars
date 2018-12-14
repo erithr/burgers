@@ -1,0 +1,50 @@
+<div class="container">
+
+    <div class="jumbotron" class="mx-auto">
+        <div class="row">
+            <div class="col-12">
+                <h1> Burgers!</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <h2>Hot and Ready Burgers Ready!</h2>
+
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <h2>Burgers Eaten!!</h2>
+
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+
+        </div>
+    </div>
+    <h2>Add a Burger To the Menu</h2>
+    <form class="create-form">
+
+        <div class="form-group">
+            <label for="burger-name">Burger Name:</label>
+            <input type="text" id="burger-name" value="Enter " name="burger_name">
+        </div>
+        <button type="submit">Add Burger</button>
+    </form>
+</div>
